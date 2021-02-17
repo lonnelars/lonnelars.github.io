@@ -17,21 +17,18 @@ En annen form for kompleksitet som dukker opp i modellene våre, er ugyldige til
 
 Tenk det at du skal lage et system for kommunen, som skal levere viktig informasjon til innbyggerne. Kanskje forsøker man først å levere det digitalt, men det er ikke alle som har registrert en digital postkasse, så man må sende brev i stedet. Da må vi vite adressen til mottakeren. Vi lager et første utkast til en modell i Java:
 
-<!-- prettier-ignore-start -->
-{% highlight java %}
+```java
 class Adresse {
     String navn;
     String veiadresse;
     String postnummer;
     String poststed;
 }
-{% endhighlight %}
-<!-- prettier-ignore-end -->
+```
 
 Denne modellen fungerer for mange av innbyggerne våre, men det viser seg at ikke alle innbyggerne har en vegadresse. Noen har en matrikkeladresse i stedet, som består av et gårdsnummer og et bruksnummer. Man kan ikke sende post til en matrikkeladresse, men vi tenker oss at Posten har en tjeneste som kan oversette en matrikkeladresse til et stedsnavn, så vi ønsker å lagre denne adressen for innbyggerne våre, dersom de har det. Da kan vi utvide modellen til dette:
 
-<!-- prettier-ignore-start -->
-{% highlight java %}
+```java
 class Adresse {
     String navn;
     String veiadresse;
@@ -41,8 +38,7 @@ class Adresse {
     Integer gårdsnummer;
     Integer bruksnummer;
 }
-{% endhighlight %}
-<!-- prettier-ignore-end -->
+```
 
 Nå er tanken at man instansierer klassen med en av de to konstruktørene, avhengig av hvilken type adresse man har. De andre feltene vil har verdien null.
 
@@ -392,7 +388,7 @@ Church encoding er min foretrukne måte å implementere sumtyper på i Java.
 
 Sumtyper gir oss et verktøy for å modellere mer presist, som gjør at vi sparer oss for potensielt veldig mange feilsituasjoner. Det betyr at vi ikke trenger like mange tester, og vi reduserer risikoen for feil i systemene vi bygger. Hvis vi implementerer sumtyper med Visitor eller church encoding er vi også sikre på alle variantene blir håndtert, siden vi får kompileringsfeil hvis vi har glemt noe. Det sparer oss for enda flere feil i produksjon.
 
-Sumtyper er litt vanskelig å implementere i Java, og det krever ganske mye kode for å få til et forholdsvis enkelt konsept. Fordelene er imidlertidig så store, at jeg mener det er verdt det. Ellers kommer sealed classes som preview i Java 15, så om ikke så lenge ser det ut som det blir støtte for det i språket. Sealed classes er også tilgjengelig i Kotlin, og i mange andre språk.
+Sumtyper er tungvint i Java, og det krever ganske mye kode for å få til et forholdsvis enkelt konsept. Fordelene er imidlertidig så store, at jeg mener det er verdt det. Ellers kommer sealed classes som preview i Java 15, så om ikke så lenge ser det ut som det blir støtte for det i språket. Sealed classes er også tilgjengelig i Kotlin, og i mange andre språk.
 
 ## Referanser
 
@@ -403,3 +399,4 @@ Sumtyper er litt vanskelig å implementere i Java, og det krever ganske mye kode
 - https://dzone.com/articles/effectively-sealed-classes-in-java
 - https://blog.ploeh.dk/2018/06/25/visitor-as-a-sum-type/
 - https://blog.ploeh.dk/2018/06/18/church-encoded-payment-types/
+- https://kotlinlang.org/docs/sealed-classes.html
