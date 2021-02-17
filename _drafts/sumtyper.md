@@ -19,25 +19,29 @@ Tenk det at du skal lage et system for kommunen, som skal levere viktig informas
 
 ```java
 class Adresse {
-    String navn;
-    String veiadresse;
-    String postnummer;
-    String poststed;
+
+  String navn;
+  String veiadresse;
+  String postnummer;
+  String poststed;
 }
+
 ```
 
 Denne modellen fungerer for mange av innbyggerne våre, men det viser seg at ikke alle innbyggerne har en vegadresse. Noen har en matrikkeladresse i stedet, som består av et gårdsnummer og et bruksnummer. Man kan ikke sende post til en matrikkeladresse, men vi tenker oss at Posten har en tjeneste som kan oversette en matrikkeladresse til et stedsnavn, så vi ønsker å lagre denne adressen for innbyggerne våre, dersom de har det. Da kan vi utvide modellen til dette:
 
 ```java
 class Adresse {
-    String navn;
-    String veiadresse;
-    String postnummer;
-    String poststed;
 
-    Integer gårdsnummer;
-    Integer bruksnummer;
+  String navn;
+  String veiadresse;
+  String postnummer;
+  String poststed;
+
+  Integer gårdsnummer;
+  Integer bruksnummer;
 }
+
 ```
 
 Nå er tanken at man instansierer klassen med en av de to konstruktørene, avhengig av hvilken type adresse man har. De andre feltene vil har verdien null.
@@ -392,11 +396,11 @@ Sumtyper er tungvint i Java, og det krever ganske mye kode for å få til et for
 
 ## Referanser
 
-- https://en.wikipedia.org/wiki/Algebraic_data_type
-- https://openjdk.java.net/jeps/360
-- https://en.wikipedia.org/wiki/Tagged_union
-- http://blog.higher-order.com/blog/2009/08/21/structural-pattern-matching-in-java/
-- https://dzone.com/articles/effectively-sealed-classes-in-java
-- https://blog.ploeh.dk/2018/06/25/visitor-as-a-sum-type/
-- https://blog.ploeh.dk/2018/06/18/church-encoded-payment-types/
-- https://kotlinlang.org/docs/sealed-classes.html
+- [https://en.wikipedia.org/wiki/Algebraic_data_type](https://en.wikipedia.org/wiki/Algebraic_data_type)
+- [https://openjdk.java.net/jeps/360](https://openjdk.java.net/jeps/360)
+- [https://en.wikipedia.org/wiki/Tagged_union](https://en.wikipedia.org/wiki/Tagged_union)
+- [http://blog.higher-order.com/blog/2009/08/21/structural-pattern-matching-in-java/](http://blog.higher-order.com/blog/2009/08/21/structural-pattern-matching-in-java/)
+- [https://dzone.com/articles/effectively-sealed-classes-in-java](https://dzone.com/articles/effectively-sealed-classes-in-java)
+- [https://blog.ploeh.dk/2018/06/25/visitor-as-a-sum-type/](https://blog.ploeh.dk/2018/06/25/visitor-as-a-sum-type/)
+- [https://blog.ploeh.dk/2018/06/18/church-encoded-payment-types/](https://blog.ploeh.dk/2018/06/18/church-encoded-payment-types/)
+- [https://kotlinlang.org/docs/sealed-classes.html](https://kotlinlang.org/docs/sealed-classes.html)
