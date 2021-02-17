@@ -7,11 +7,11 @@ title: "Sumtyper"
 
 Når vi bygger systemer, lager vi modeller av den virkelige verden. Det er mange måter å bygge disse modellene på, og noen av dem introduserer en del problemer vi helst vil være foruten. Her skal vi utforske en teknikk som kalles sumtyper, som kan redusere feilene vi introduserer i modellene våre, og gjøre systemene vi bygger mer robuste.
 
-## Uheldig kompleksitet
+## Utilsiktet kompleksitet
 
 Felles for alle systemer vi bygger, er at vi må ha en modell av det vi jobber med i koden. En modell er en forenklet versjon av den virkelige verden. Noen ganger er den veldig forenklet, og fokuserer bare på noen få begreper. Andre ganger har vi behov for å vite mer om alle detaljene, og modellene kan bli ekstremt kompliserte.
 
-En annen form for kompleksitet som dukker opp i modellene våre, er ugyldige tilstander. Dette er et resultat av måten vi har modellert på, og kan føre til at koden vi skriver må ta hensyn til mange tilfeller som aldri kan oppstå i den virkelige verden. Denne typen kompleksitet er uønsket, og fører til at systemene blir vanskeligere og dyrere og vedlikeholde. Det øker også sannsynligheten for feil i koden, og for at vi ender opp i situasjoner som ikke skal være mulig. Denne typen kompleksitet er det Frederick Phillips Brooks Jr. kaller “accidental complexity”: det er kompleksitet som er skapt av oss som bygger systemet, og som ikke finnes i den virkelige verden. I denne artikkelen skal vi kalle det for “uheldig kompleksitet”, og vi skal se på en teknikk som kan begrense det.
+En annen form for kompleksitet som dukker opp i modellene våre, er ugyldige tilstander. Dette er et resultat av måten vi har modellert på, og kan føre til at koden vi skriver må ta hensyn til mange tilfeller som aldri kan oppstå i den virkelige verden. Denne typen kompleksitet er uønsket, og fører til at systemene blir vanskeligere og dyrere og vedlikeholde. Det øker også sannsynligheten for feil i koden, og for at vi ender opp i situasjoner som ikke skal være mulig. Denne typen kompleksitet er det Frederick Phillips Brooks Jr. kaller “accidental complexity”: det er kompleksitet som er skapt av oss som bygger systemet, og som ikke finnes i den virkelige verden. I denne artikkelen skal vi kalle det for “utilsiktet kompleksitet”, og vi skal se på en teknikk som kan begrense det.
 
 ## Et eksempel
 
@@ -78,16 +78,16 @@ public static String adresselapp(Adresse adresse) {
 Nå har vi glemt matrikkeladressen. I beste fall er dette kanskje spesifisert i oppgaven, og noen skriver en test som feiler når man tester med en matrikkeladresse. I verste fall går dette rett gjennom, og blir ikke oppdaget før man får konvolutter i retur med adressen
 
 ```
-null
+Anne Olsen
 null
 null null
 ```
 
 Dette problemet oppstår også når man utvider en eksisterende modell. Kanskje hadde første versjon av Adresse-klassen bare veiadresse, og da man skrev adresselapp-funksjonen fantes det ingen felter for matrikkeladressen. Men når de nye feltene blir lagt til, er det ingenting som varsler deg om at du må oppdatere funksjonen “adresselapp”. Hvis ikke du legger merke til det selv, eller prosjektet har gode rutiner for endringer, blir det nok ikke oppdaget før det feiler i produksjon.
 
-## Uheldig kompleksitet i Adresse-klassen
+## Utilsiktet kompleksitet i Adresse-klassen
 
-Dette er et eksempel på uheldig kompleksitet. Det er et problem som ikke finnes i den virkelige verden, men som vi har innført ved å velge en dårlig modell.
+Dette er et eksempel på utilsiktet kompleksitet. Det er et problem som ikke finnes i den virkelige verden, men som vi har innført ved å velge en dårlig modell.
 
 Når vi analyserer problemet, ser vi at modellen vår tillater mange tilstander som ikke skal være mulig. Sagt på en annen måte: det finnes noen sannheter om adresser som ikke er bevart i modellen vår, og som skaper problemer. Et eksempel på en slik sannhet at en adresse er enten en vegadresse eller en matrikkeladresse. Modellen vår gjenspeiler ikke dette, for eksempel tillater den at vi har en instans av Adresse som har satt alle feltene, eller bare navn, for å nevne noen. Hvis vi forenkler litt, og sier at hvert felt enten er definert eller ikke definert, er det 2^6 = 64 mulige kombinasjoner av felter, og bare to av dem er gyldige. Etterhvert som du legger til flere felter, eksploderer antall kombinasjoner, og det blir praktisk umulig å dekke alt med tester.
 
@@ -99,7 +99,7 @@ Når vi programmerer, definerer vi nye typer ved å kombinere enklere typer. I J
 
 For eksempel, om du lager en ny klasse med tre felter av typen boolean, er antall mulige verdier 2 × 2 × 2 = 8. Som vi så i eksempelet over, blir dette fort uhåndterlig, og vi ender opp med mange muligheter som ikke finnes i den virkelige verden.
 
-En annen måte å konstruere nye typer på kalles sumtyper. I forskjellige programmeringsspråk kalles de også tagged unions, disjoint unions og variants. Forskjellen fra produkttyper er at de består av en gitt mengde varianter, og antall mulige verdier av denne nye typen er summen av varianter. Det betyr at om vi legger til en ny variant, blir det bare en ny mulig verdi. Dette er styrken til sumtyper, og grunnen til at vi kan unngå mye av den uheldige kompleksiteten vi så tidligere i adresseeksempelet vårt.
+En annen måte å konstruere nye typer på kalles sumtyper. I forskjellige programmeringsspråk kalles de også tagged unions, disjoint unions og variants. Forskjellen fra produkttyper er at de består av en gitt mengde varianter, og antall mulige verdier av denne nye typen er summen av varianter. Det betyr at om vi legger til en ny variant, blir det bare en ny mulig verdi. Dette er styrken til sumtyper, og grunnen til at vi kan unngå mye av den utilsiktede kompleksiteten vi så tidligere i adresseeksempelet vårt.
 
 Aller helst vil vi også skrive sumtypene på en typesikker måte, slik at vi får en kompilatorfeil om vi ikke håndterer alle variantene. Det ville forhindret feilen i eksempelet vårt, hvor vi ikke håndterer matrikkeladressen. Det vil også sørge for at vi blir nødt til å håndtere nye varianter som blir innført senere.
 
