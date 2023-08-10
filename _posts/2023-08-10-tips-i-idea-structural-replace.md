@@ -92,11 +92,11 @@ Målet er å oppdatere alle referansene til `URL(...)`, og bytte de ut med `URI(
 
 Det første vi gjør er å velge "Replace structurally..." i Edit-menyen.
 
-![Vi velger "Replace structurally..." fra menyen i IDEA](/lonnelars.github.io/assets/images/menu-item.png)
+![Vi velger "Replace structurally..." fra menyen i IDEA](/assets/images/menu-item.png)
 
 Da får vi opp et nytt vindu hvor vi kan søke og erstatte kode, som vi er kjent med fra vanlig search and replace. Det som er nytt her er at vi har _Code completion_ i søkevinduet, og kan velge blant mange ferdig definerte kodestrukturer som vi vil søke etter. Vi velger _Method calls_ i kotlin.
 
-![Vi søker etter _Method calls_ i kotlin-kode](/lonnelars.github.io/assets/images/method-calls.png)
+![Vi søker etter _Method calls_ i kotlin-kode](/assets/images/method-calls.png)
 
 Vi får presentert følgende mal: `$Before$.$MethodCall$($Parameter$)`. `$Before$` trenger vi ikke, så den fjerner vi. Når vi klikker på `$MethodCall$` kan vi velge å legge til _modifiers_, for å filtrere ut de metodekallene vi er ute etter. Vi legger til en ny _modifier_ ved å klikke på "+" helt til høyre, velger "Text" og skriver inn "URL".
 
@@ -106,9 +106,9 @@ I tekstfeltet under kan vi skrive inn en _Replace template_, som er en mal for h
 
 I tillegg huker vi av _Shorten fully qualified names_ under tekstfeltet. Da blir `java.net.URI` skrevet om til `URI`, og den riktige importen blir lagt til.
 
-![Ferdig utfylt søkefelt og replace template](/lonnelars.github.io/assets/images/replace-template.png)
+![Ferdig utfylt søkefelt og replace template](/assets/images/replace-template.png)
 
-![Erstatt alle kall til URL med den nye koden](/lonnelars.github.io/assets/images/replace-all.png)
+![Erstatt alle kall til URL med den nye koden](/assets/images/replace-all.png)
 
 Når vi nå klikker på _Find_ får vi opp et nytt vindu som finner alle kallene til URL-konstruktøren, og så er det bare å velge _Replace all_ for å erstatte dem med URI-konstruktøren i stedet. Magisk ✨
 
