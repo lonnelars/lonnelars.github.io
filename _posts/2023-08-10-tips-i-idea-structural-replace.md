@@ -112,6 +112,29 @@ I tillegg huker vi av "Shorten fully qualified names" under tekstfeltet. Da blir
 
 Når vi nå klikker på "Find" får vi opp et nytt vindu som finner alle kallene til URL-konstruktøren, og så er det bare å velge "Replace all" for å erstatte dem med URI-konstruktøren i stedet. Magisk ✨
 
+```kotlin
+import java.net.URI
+import java.net.URL
+
+fun main() {
+    println("Hello World!")
+
+    val urls = SevenURLs(
+        url1 = URI("https://www.url1.com").toURL(),
+        url2 = URI("https://www.url2.com").toURL(),
+        url3 = URI("https://www.url3.com").toURL(),
+        url4 = URI("https://www.url4.com").toURL(),
+        url5 = URI("https://www.url5.com").toURL(),
+        url6 = URI("https://www.url6.com").toURL(),
+        url7 = URI("https://www.url7.com").toURL()
+    )
+
+    println("URLs: $urls")
+}
+
+// Dataklassen er ikke vist, siden den ikke er forandret.
+```
+
 # Et fantastisk verktøy
 
 Dette var en nydelig oppdagelse. Jeg trenger ikke å ha dårlig samvittighet for alle advarslene i koden som jeg burde ha gjort noe med, og jeg trenger ikke å skrive om masse kode for hånd, noe som hadde vært utrolig kjedelig. Datamaskiner skal helst ta seg av de kjedelige oppgavene, så vi kan bruke tida vår på mer interessante oppgaver. Her har IDEA løst det på en suveren måte, selv om det var litt vanskelig å finne.
