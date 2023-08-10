@@ -48,11 +48,11 @@ En naturlig forlengelse av denne ideen er regex, men siden jeg ikke ville ha end
 
 # Structural search and replace
 
-Fra noen smarte kollegaer i Kantega fikk jeg et tips om at det finnes en bedre search and replace i IDEA, som heter _Structural search and replace_. [Her er det Jetbrains selv sier om det:](https://www.jetbrains.com/help/idea/structural-search-and-replace.html)
+Fra noen smarte kollegaer i Kantega fikk jeg et tips om at det finnes en bedre _search and replace_ i IDEA, som heter _Structural search and replace_. [Her er det Jetbrains selv sier om det:](https://www.jetbrains.com/help/idea/structural-search-and-replace.html)
 
 > A conventional search process does not take into account the syntax and semantics of the source code. Even if you use regular expressions, IntelliJ IDEA still treats your code as a regular text. The structural search and replace (SSR) actions let you search for a particular code pattern or grammatical construct in your code considering your code structure.
 
-Dette hørtes lovende ut! Search and replace som ikke bare ser på koden som tekst, men som i tillegg vet om strukturen og gramatikken i språket du jobber med.
+Dette hørtes lovende ut! _Search and replace_ som ikke bare ser på koden som tekst, men som i tillegg vet om strukturen og gramatikken i språket du jobber med.
 
 # Et eksempel
 
