@@ -48,7 +48,7 @@ En naturlig forlengelse av denne ideen er regex, men siden jeg ikke ville ha end
 
 # Structural search and replace
 
-Fra noen smarte kollegaer i Kantega fikk jeg et tips om at det finnes en bedre search and replace i IDEA, som heter _Search structurally..._ og _Replace structurally..._. [Her er det Jetbrains selv sier om det:](https://www.jetbrains.com/help/idea/structural-search-and-replace.html)
+Fra noen smarte kollegaer i Kantega fikk jeg et tips om at det finnes en bedre search and replace i IDEA, som heter _Structural search and replace_. [Her er det Jetbrains selv sier om det:](https://www.jetbrains.com/help/idea/structural-search-and-replace.html)
 
 > A conventional search process does not take into account the syntax and semantics of the source code. Even if you use regular expressions, IntelliJ IDEA still treats your code as a regular text. The structural search and replace (SSR) actions let you search for a particular code pattern or grammatical construct in your code considering your code structure.
 
@@ -94,7 +94,7 @@ Det første vi gjør er å velge "Replace structurally..." i Edit-menyen.
 
 ![Vi velger "Replace structurally..." fra menyen i IDEA](/assets/images/menu-item.png)
 
-Da får vi opp et nytt vindu hvor vi kan søke og erstatte kode, som vi er kjent med fra vanlig search and replace. Det som er nytt her er at vi har _Code completion_ i søkevinduet, og kan velge blant mange ferdig definerte kodestrukturer som vi vil søke etter. Vi velger _Method calls_ i kotlin.
+Da får vi opp et nytt vindu hvor vi kan søke og erstatte kode, som vi er kjent med fra vanlig search and replace. Det som er nytt her er at vi har _code completion_ i søkevinduet, og kan velge blant mange ferdig definerte kodestrukturer som vi vil søke etter. Vi velger "Method calls" i kotlin.
 
 ![Vi søker etter _Method calls_ i kotlin-kode](/assets/images/method-calls.png)
 
@@ -104,16 +104,16 @@ Vi får presentert følgende mal: `$Before$.$MethodCall$($Parameter$)`. `$Before
 
 I tekstfeltet under kan vi skrive inn en _Replace template_, som er en mal for hvordan den nye koden skal se ut. Vi vil endre metodekallet fra `URL` til `URI`, og vi vil kalle metoden `toURL()` på den nye instansen. Her kan vi bruke `$Parameter$` for å få den samme parameteren som i søkeresultatet. Malen vår blir derfor `java.net.URI($Parameter$).toURL()`.
 
-I tillegg huker vi av _Shorten fully qualified names_ under tekstfeltet. Da blir `java.net.URI` skrevet om til `URI`, og den riktige importen blir lagt til.
+I tillegg huker vi av "Shorten fully qualified names" under tekstfeltet. Da blir `java.net.URI` skrevet om til `URI`, og den riktige importen blir lagt til.
 
 ![Ferdig utfylt søkefelt og replace template](/assets/images/replace-template.png)
 
 ![Erstatt alle kall til URL med den nye koden](/assets/images/replace-all.png)
 
-Når vi nå klikker på _Find_ får vi opp et nytt vindu som finner alle kallene til URL-konstruktøren, og så er det bare å velge _Replace all_ for å erstatte dem med URI-konstruktøren i stedet. Magisk ✨
+Når vi nå klikker på "Find" får vi opp et nytt vindu som finner alle kallene til URL-konstruktøren, og så er det bare å velge "Replace all" for å erstatte dem med URI-konstruktøren i stedet. Magisk ✨
 
-# Konklusjon
+# Et fantastisk verktøy
 
 Dette var en nydelig oppdagelse. Jeg trenger ikke å ha dårlig samvittighet for alle advarslene i koden som jeg burde ha gjort noe med, og jeg trenger ikke å skrive om masse kode for hånd, noe som hadde vært utrolig kjedelig. Datamaskiner skal helst ta seg av de kjedelige oppgavene, så vi kan bruke tida vår på mer interessante oppgaver. Her har IDEA løst det på en suveren måte, selv om det var litt vanskelig å finne.
 
-Det er mange flere muligheter i dette søket, som helt sikkert kan løse mange andre problemer. Husk på det til neste gang du kvier deg for å oppdatere masse kode i prosjektet ditt. Kanskje IDEA kan gjøre det for deg? 📝
+Det er mange flere muligheter i dette søket, som helt sikkert kan løse mange andre problemer. Husk på det til neste gang du kvier deg for å oppdatere masse kode i prosjektet ditt. Kanskje IDEA kan gjøre det for deg?
