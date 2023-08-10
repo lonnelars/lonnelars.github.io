@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Tips i IDEA: Skriv om koden din automatisk!"
+date: 2023-08-10
+categories: programming kotlin intellij-idea
 ---
 
 Her om dagen oppdaterte jeg java-versjonen i prosjektet jeg jobber med, og oppdaget at konstruktøren til URL var _deprecated_:
