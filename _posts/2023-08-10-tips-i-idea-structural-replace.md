@@ -137,6 +137,6 @@ fun main() {
 
 # Et fantastisk verktøy
 
-Dette var en nydelig oppdagelse. Jeg trenger ikke å ha dårlig samvittighet for alle advarslene i koden som jeg burde ha gjort noe med, og jeg trenger ikke å skrive om masse kode for hånd, noe som hadde vært utrolig kjedelig. Datamaskiner skal helst ta seg av de kjedelige oppgavene, så vi kan bruke tida vår på mer interessante oppgaver. Her har IDEA løst det på en suveren måte, selv om det var litt vanskelig å finne.
+Dette var en nydelig oppdagelse. Jeg trenger ikke å ha dårlig samvittighet for alle advarslene i koden som jeg burde ha gjort noe med, og jeg trenger ikke å skrive om masse kode for hånd, noe som hadde vært utrolig kjedelig. Datamaskiner skal helst ta seg av det som er kjedelig, så vi kan bruke tida vår på mer interessante oppgaver. Her har IDEA løst det på en suveren måte, selv om det var litt vanskelig å finne.
 
 Det er mange flere muligheter i dette søket, som helt sikkert kan løse mange andre problemer. Husk på det til neste gang du kvier deg for å oppdatere masse kode i prosjektet ditt. Kanskje IDEA kan gjøre det for deg?
